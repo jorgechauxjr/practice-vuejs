@@ -8,6 +8,7 @@
     <div v-else>
       <p>No puedo mostrar nombre</p>
     </div>
+    
     <hr>
     <!-- <div>
       {{ tasks[0].title }}
@@ -39,6 +40,14 @@
     <p>Evento que escucha cuando el usuario va tecleando en nuestro input</p>
     <!-- Cuando usuario escriba y de enter ejecuta la funcion typing -->
     <input type="text" v-on:keyup.enter="typing">
+
+    <!-- fullname se creó usando Computed properties -->
+    <hr>
+    <h3>Computed properties</h3>
+    <h3>Se generan a partir de valores de otras propiedades</h3>
+    <div>
+      {{ fullName }}
+    </div>
   
   
   </div>
@@ -65,6 +74,7 @@
         ]
       }
     },
+
     methods: {
       saludar(name) {
         alert(`GOOD MORNING ${name}`)
@@ -84,8 +94,14 @@
       console.log(e)
       console.log(e.target.value)
     }
+   },
 
+  computed: {
+    fullName() {
+      return `${this.user.name} ${this.user.lastName}`
     }
+  }
+
   }
 </script>
 
