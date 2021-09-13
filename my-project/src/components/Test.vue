@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="testStyle">
 
     <div>
       {{ myMsg }}
@@ -120,5 +120,7 @@
 </script>
 
 <style media="screen">
-
+  .testStyle {
+    background-color: #eee;
+  }
 </style>
