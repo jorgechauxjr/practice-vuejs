@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1 v-html="myHtml"></h1>
+     <h1 v-html="myHtml"></h1>
+    
     <div v-if="showName">
       <p>{{ user.name }}</p>
     </div>
@@ -17,6 +18,11 @@
       </li>
     </ul>
 
+
+    <button type="button" 
+      v-on:click="saludar(user.name)">
+      CLICK ME
+    </button>
   </div>
 </template>
 
@@ -37,6 +43,11 @@
           {title: 'play'},
           {title: 'sing'}
         ]
+      }
+    },
+    methods: {
+      saludar(name) {
+        alert(`GOOD MORNING ${name}`)
       }
     }
   }
