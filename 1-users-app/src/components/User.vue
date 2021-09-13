@@ -5,6 +5,7 @@
       <li v-for="user in users"
         v-bind:key="user.email">
         {{ user.name }} - {{ user.email }}
+        <button v-on:click="deleteUser()">X</button>
       </li>
     </ul>
     <!-- .prevent es para que no se refresque la pagina al enviar datos del formulario -->
@@ -50,6 +51,9 @@
       addUser() {
         this.users.push(this.newUser)
         this.newUser= {}
+      },
+      deleteUser(user) {
+        this.users.splice(this.users.indexOf(user), 1);
       }
     }
   }
