@@ -1,14 +1,20 @@
 <template>
   <div>
+
+    <div>
+      {{ myMsg }}
+    </div>
+
+    <hr>
      <h1 v-html="myHtml"></h1>
-    
+
     <div v-if="showName">
       <p>{{ user.name }}</p>
     </div>
     <div v-else>
       <p>No puedo mostrar nombre</p>
     </div>
-    
+
     <hr>
     <!-- <div>
       {{ tasks[0].title }}
@@ -25,7 +31,7 @@
     <p>La directiva v-model permite linkear las cosa que puede escribir el usuario por medio de un input con las propiedades que tenemos en data</p>
     <input type="text" v-model="user.name">
 
-    <button type="button" 
+    <button type="button"
       v-on:click="saludar(user.name)">
       CLICK ME
     </button>
@@ -48,10 +54,10 @@
     <div>
       {{ fullName }}
     </div>
-  
-  
+
+
   </div>
-  
+
 
 </template>
 
@@ -99,6 +105,14 @@
   computed: {
     fullName() {
       return `${this.user.name} ${this.user.lastName}`
+    }
+  },
+
+// myMsg es el nombre que se le dio en el App.vue al pasar por parametro <Test myMsg="HOLA DESDE COMPONENTE PADRE App />"
+  props: {
+    myMsg: {
+      type: String,
+      default: "Mensaje por defecto cuando no pasan ninguno por parametro"
     }
   }
 

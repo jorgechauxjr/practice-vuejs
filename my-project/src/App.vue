@@ -2,7 +2,7 @@
   <div id="app">
     
     <h1>Hola Mundo</h1>
-    <Test />
+    <Test myMsg="HOLA DESDE COMPONENTE PADRE App" />
   </div>
 </template>
 
