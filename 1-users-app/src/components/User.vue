@@ -7,6 +7,14 @@
         {{ user.name }} - {{ user.email }}
       </li>
     </ul>
+    <!-- .prevent es para que no se refresque la pagina al enviar datos del formulario -->
+    <form v-on:submit.prevent="addUser">
+      <input type="text" v-model="newUser.name" placeholder="Name"> 
+      <input type="email" v-model="newUser.email" placeholder="Email"> 
+      <button type="submit">
+        Add 
+      </button>
+    </form>
   </div>
 </template>
 
@@ -30,7 +38,15 @@
             email: 'donna@myemail.com',
             contacted: true
           }
-        ]
+        ],
+        newUser: {}
+      }
+    },
+
+    methods: {
+      
+      addUser() {
+        console.log("Agregando usuario...", this.newUser);
       }
     }
   }
@@ -38,6 +54,8 @@
 
 <style lang="css">
   .users {
-    background: blue;
+    background: black;
+    color: white;
+    padding: 20px;
   }
 </style>
