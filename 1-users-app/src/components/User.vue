@@ -26,21 +26,7 @@
     data() {
       return {
         users: [
-          {
-            name: 'Joe',
-            email: 'joe@myemail.com',
-            contacted: false
-          },
-          {
-            name: 'Ryan',
-            email: 'ryan@myemail.com',
-            contacted: false
-          },
-          {
-            name: 'Donna',
-            email: 'donna@myemail.com',
-            contacted: true
-          }
+          
         ],
         newUser: {}
       }
@@ -55,6 +41,18 @@
       deleteUser(user) {
         this.users.splice(this.users.indexOf(user), 1);
       }
+    },
+
+    created() {
+      // console.log("componente creado========")
+      // $http lo puedo usar porque instale la dependencia vue-resorces
+      // $http.get() me permite traer datos, en este caso de jsonplaceholoder
+      /*this.$http.get('https://jsonplaceholder.typicode.com/users')
+      .then(res => console.log(res))*/
+
+      // asigno a mi arreglo users el resultado de los datos con la propiedad ".body" de la response
+      this.$http.get('https://jsonplaceholder.typicode.com/users')
+      .then(res => this.users = res.body)
     }
   }
 </script>
