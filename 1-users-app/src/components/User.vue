@@ -8,6 +8,8 @@
       </li>
     </ul>
     <!-- .prevent es para que no se refresque la pagina al enviar datos del formulario -->
+    <!-- newUser.name es para agregar name al ojeto newUser -->
+    <!-- newUser.email es para agregar email al ojeto newUser -->
     <form v-on:submit.prevent="addUser">
       <input type="text" v-model="newUser.name" placeholder="Name"> 
       <input type="email" v-model="newUser.email" placeholder="Email"> 
@@ -42,11 +44,12 @@
         newUser: {}
       }
     },
-
+    // this.newUser={} es para limpiar la info en el input
     methods: {
       
       addUser() {
-        console.log("Agregando usuario...", this.newUser);
+        this.users.push(this.newUser)
+        this.newUser= {}
       }
     }
   }
