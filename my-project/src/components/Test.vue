@@ -21,15 +21,29 @@
     <hr>
     <h1>Two way data binding</h1>
     <h2>Directiva v-model</h2>
-    <p>La directiva v-model permite linkear las cosa que puede escribir el usuario por medio de un input con las propiedades que tenemos en data
-</p>
+    <p>La directiva v-model permite linkear las cosa que puede escribir el usuario por medio de un input con las propiedades que tenemos en data</p>
     <input type="text" v-model="user.name">
 
     <button type="button" 
       v-on:click="saludar(user.name)">
       CLICK ME
     </button>
+
+    <hr>
+    <h2>Directiva v-on:keyup.enter</h2>
+    <p>Evento que escucha cuando el usuario da enter en nuestro input</p>
+    <!-- Cuando usuario escriba y de enter ejecuta la funcion typing -->
+    <input type="text" v-on:keyup.enter="typedEnter">
+
+    <h2>Directiva v-on:keyup</h2>
+    <p>Evento que escucha cuando el usuario va tecleando en nuestro input</p>
+    <!-- Cuando usuario escriba y de enter ejecuta la funcion typing -->
+    <input type="text" v-on:keyup.enter="typing">
+  
+  
   </div>
+  
+
 </template>
 
 <script>
@@ -54,7 +68,23 @@
     methods: {
       saludar(name) {
         alert(`GOOD MORNING ${name}`)
-      }
+      },
+      typedEnter(e) {
+        // console.log(e)
+        // console.log(e.target.value)
+
+        // 13 es enter
+      //   if (e.target.keyCode === 13) {
+      //     console.log("presiono enter")
+      // }
+      console.log(e)
+      console.log("DIO ENTER")
+    },
+    typing(e) {
+      console.log(e)
+      console.log(e.target.value)
+    }
+
     }
   }
 </script>
