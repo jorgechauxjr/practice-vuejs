@@ -2,8 +2,25 @@
   <div id="app">
     
     <h1>Hola Mundo</h1>
-    <Test myMsg="HOLA DESDE COMPONENTE PADRE App" />
-    <User />
+    <nav>
+      <ul>
+        <li>
+          <router-link to="/test">
+            Test
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/">
+            User
+          </router-link>
+        </li>
+      </ul>
+    </nav>
+    <hr>    
+    <router-view></router-view>
+    <!-- ====== DESCOMENTAR PROVISIONAL PARA EVITAR ERROR ====== -->
+    <!-- <Test />
+    <User /> -->
   </div>
 </template>
 
